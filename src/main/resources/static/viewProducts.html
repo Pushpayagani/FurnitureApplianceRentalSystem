@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+
+    <script>
+        function loadProducts() {
+
+            fetch("http://localhost:9090/FurnitureApplianceRentalSystem/product/getProduct")
+            .then(res => res.json())
+            .then(data => {
+
+                let table = "";
+
+                data.forEach(p => {
+
+                    table += `<tr>
+                                <td>${p.id}</td>
+                                <td>${p.name}</td>
+                                <td>${p.category}</td>
+                                <td>${p.price}</td>
+                                <td>${p.description}</td>
+                              </tr>`;
+                });
+
+                document.getElementById("productTable").innerHTML = table;
+            })
+            .catch(error => console.log(error));
+        }
+    </script>
+
+    <style>
+
+        body{
+        font-family:Arial;
+        background:#f4f4f4;
+        text-align:center;
+        }
+
+        table{
+        margin:auto;
+        border-collapse:collapse;
+        width:70%;
+        }
+
+        th,td{
+        padding:10px;
+        border:1px solid black;
+        }
+
+        th{
+        background:#333;
+        color:white;
+        }
+
+    </style>
+
+</head>
+
+<body onload="loadProducts()">
+
+<h2>Product List</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+
+    <tbody id="productTable">
+
+    </tbody>
+
+</table>
+
+</body>
+</html>

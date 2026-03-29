@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product List</title>
+    <script>
+        function loadProducts() {
+            fetch("http://localhost:9090/FurnitureApplianceRentalSystem/product/getProduct")
+            .then(res => res.json())
+            .then(data => {
+                let table = "";
+                data.forEach(p => {
+                    table += `<tr>
+                        <td>${p.id}</td>
+                        <td>${p.name}</td>
+                        <td>${p.category}</td>
+                        <td>${p.price}</td>
+                        <td>${p.description}</td>
+                    </tr>`;
+                });
+                document.getElementById("productTable").innerHTML = table;
+            });
+        }
+    </script>
+    <style>
+
+        body{
+        font-family:Arial;
+        background:#f4f4f4;
+        text-align:center;
+        }
+
+        table{
+        margin:auto;
+        border-collapse:collapse;
+        width:60%;
+        }
+
+        th,td{
+        padding:10px;
+        border:1px solid black;
+        }
+
+        th{
+        background:#333;
+        color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h2>Product List</h2>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+    </tr>
+
+    <tr th:each="p : ${products}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.productName}"></td>
+        <td th:text="${p.category}"></td>
+        <td th:text="${p.price}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

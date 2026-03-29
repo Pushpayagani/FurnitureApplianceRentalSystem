@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+    <script>
+        function addProduct() {
+            fetch("http://localhost:9090/FurnitureApplianceRentalSystem/product/saveProduct", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("name").value,
+                    category: document.getElementById("category").value,
+                    price: document.getElementById("price").value,
+                    description: document.getElementById("description").value
+                })
+            })
+            .then(res => res.json())
+            .then(data => alert("Product Added!"));
+        }
+    </script>
+    <style>
+
+        body{
+        font-family:Arial;
+        background:#f4f4f4;
+        text-align:center;
+        }
+
+        .container{
+        margin-top:50px;
+        }
+
+        input{
+        padding:10px;
+        margin:10px;
+        width:200px;
+        }
+
+        button{
+        padding:10px 20px;
+        background:#28a745;
+        color:white;
+        border:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h2>Add Product</h2>
+
+<div class="container">
+
+    <form action="/addProduct" method="post">
+
+        <input type="text" name="productName" placeholder="Product Name"><br>
+
+        <input type="text" name="category" placeholder="Category"><br>
+
+        <input type="number" name="price" placeholder="Price"><br>
+
+        <button type="submit">Add Product</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

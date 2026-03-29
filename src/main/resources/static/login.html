@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+
+    <style>
+
+        body{
+        font-family: Arial;
+        background-color:#f2f2f2;
+        text-align:center;
+        }
+
+        .container{
+        margin-top:100px;
+        background:white;
+        width:300px;
+        padding:20px;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius:5px;
+        box-shadow:0 0 10px gray;
+        }
+
+        input{
+        width:90%;
+        padding:8px;
+        margin:8px;
+        }
+
+        button{
+        padding:10px 20px;
+        background-color:#007BFF;
+        color:white;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        }
+
+        button:hover{
+        background-color:#0056b3;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>User Login</h2>
+
+    <form id="loginForm">
+
+        <input type="text" id="userId" placeholder="Enter UserId" required>
+
+        <input type="password" id="password" placeholder="Enter Password" required>
+
+        <br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <p>New User? <a href="register.html">Register Here</a></p>
+
+</div>
+
+<script>
+
+    document.getElementById("loginForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let loginData = {
+    userId: document.getElementById("userId").value,
+    password: document.getElementById("password").value
+    };
+
+    fetch("http://localhost:9090/FurnitureApplianceRentalSystem/user/login", {
+
+    method: "POST",
+    headers: {
+    "Content-Type": "application/json"
+    },
+    body: JSON.stringify(loginData)
+
+    })
+    .then(response => {
+
+    if(response.ok){
+         return response.text();
+    }else{
+    throw new Error("Login Failed");
+    }
+
+    })
+    .then(data => {
+
+document.getElementById("message").innerText = "Login Successful";
+
+setTimeout(function(){
+window.location.href = "dashboard.html";
+},1000);
+
+})
+.catch(error => {
+
+document.getElementById("message").innerText = "Invalid userId or Password";
+
+   });
+ });
+
+</script>
+
+</body>
+</html>
