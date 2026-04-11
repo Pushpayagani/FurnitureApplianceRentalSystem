@@ -64,6 +64,13 @@ public class ProductServiceImpl implements ProductService {
         }
         return product;
     }
+    public List<ProductEntity> searchProducts(String keyword){
+        return productRepository.findByNameContainingIgnoreCase(keyword);
+    }
+    @Override
+    public List<ProductEntity> getProductsByCategory(String category) {
+        return productRepository.getProductsByCategory(category);
+    }
 }
 
 

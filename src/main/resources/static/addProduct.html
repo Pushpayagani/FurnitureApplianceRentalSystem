@@ -180,6 +180,26 @@
     </form>
 
 </div>
+.then(data => {
 
+let productContainer = document.querySelector(".products");
+
+if(data.length === 0){
+productContainer.innerHTML = "<h3>No Product Found</h3>";
+return;
+}
+
+productContainer.innerHTML = "";
+
+data.forEach(product => {
+productContainer.innerHTML += `
+<div class="card">
+    <h3>${product.name}</h3>
+    <p>Rent Price: ${product.rentPerDay}/day</p>
+</div>
+`;
+});
+
+});
 </body>
 </html>

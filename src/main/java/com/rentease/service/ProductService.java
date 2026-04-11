@@ -19,5 +19,8 @@ public interface ProductService {
 
     ProductEntity deleteProductId(Long id);
 
+    List<ProductEntity> searchProducts(String name);
+    List<ProductEntity> getProductsByCategory(String category);
+
 
 }

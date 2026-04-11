@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+<div id="product-list"></div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get('category');
+
+  fetch("/products?category=" + category)
+    .then(res => res.json())
+    .then(data => {
+      let html = "";
+      data.forEach(p => {
+          html += `<p>${p.name}</p>`;
+      });
+      document.getElementById("product-list").innerHTML = html;
+    });
+</script>
+</body>
+</html>

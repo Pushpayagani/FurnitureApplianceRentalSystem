@@ -39,4 +39,18 @@ public class ProductController {
         productService.deleteProductId(id);
         return "product deleted Successfully";
     }
+    @GetMapping("/search")
+    public List<ProductEntity> searchProducts(@RequestParam String keyword){
+        return productService.searchProducts(keyword);
+    }
+    @GetMapping
+    public List<ProductEntity> getProducts(
+            @RequestParam(required = false) String category) {
+
+        if (category != null) {
+            return productService.getProductsByCategory(category);
+        } else {
+            return productService.getAllProduct();
+        }
+    }
 }

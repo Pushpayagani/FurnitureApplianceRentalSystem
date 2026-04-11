@@ -1,24 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Book Product</title>
+    <title>Booking Page</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+            text-align:center;
+        }
+
+        .box{
+            width:350px;
+            margin:50px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input{
+            width:90%;
+            padding:10px;
+            margin:10px 0;
+            border-radius:5px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .pay-btn{
+            background:green;
+            color:white;
+        }
+
+        .pay-btn:disabled{
+            background:gray;
+            cursor:not-allowed;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>Book Product</h2>
+<div id="popupBox" style="display:none; position:fixed; top:30%; left:50%; transform:translate(-50%,-50%);
+              background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px black;">
+    <h3 id="popupText"></h3>
+    <button onclick="closePopup()">OK</button>
+</div>
+<div class="box">
+    <h2>Enter Address</h2>
 
-<form action="/bookProduct" method="post">
+    <input type="text" id="name" placeholder="Full Name"><br>
+    <input type="text" id="phone" placeholder="Phone Number"><br>
+    <input type="text" id="address" placeholder="Address"><br>
+    <input type="text" id="city" placeholder="City"><br>
 
-    <input type="text" name="productName" placeholder="Product Name"><br><br>
+    <button class="pay-btn" id="payBtn" disabled onclick="makePayment()">
+        Proceed to Payment
+    </button>
+</div>
 
-    <input type="text" name="userName" placeholder="User Name"><br><br>
+<script>
+    let deliveryDateGlobal = "";
+let bookingIdGlobal = "";
 
-    <input type="number" name="days" placeholder="Number of Days"><br><br>
+function showPopup(message){
+    document.getElementById("popupText").innerText = message;
+    document.getElementById("popupBox").style.display = "block";
+}
+   function closePopup(){
 
-    <button type="submit">Book Now</button>
+    let text = document.getElementById("popupText").innerText;
 
-</form>
+    // payment wala popup hai
+    if(text.includes("Payment Successful")){
+
+        showPopup(
+            "Booking Successful!\n\n" +
+            "Booking ID: " + bookingIdGlobal + "\n\n" +
+            "Delivery in 2 days \n" +
+            "Date: " + deliveryDateGlobal
+        );
+
+    } else {
+        // Final close + redirect
+        document.getElementById("popupBox").style.display = "none";
+        window.location.href = "homePage.html";
+    }
+}
+    let inputs = document.querySelectorAll("input");
+    let payBtn = document.getElementById("payBtn");
+
+    inputs.forEach(input => {
+        input.addEventListener("keyup", checkForm);
+    });
+
+    function checkForm(){
+        let filled = true;
+
+        inputs.forEach(input => {
+            if(input.value.trim() === ""){
+                filled = false;
+            }
+        });
+
+        payBtn.disabled = !filled;
+    }
+
+    function makePayment(){
+
+        let urlParams = new URLSearchParams(window.location.search);
+        let productId = urlParams.get("productId");
+
+        let bookingData = {
+            userId: 1,
+            productId: productId,
+        };
+
+        fetch("http://localhost:9090/FurnitureApplianceRentalSystem/bookings/createBooking", {
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(bookingData)
+        })
+        .then(res => res.json())
+        .then(data => {
+
+    let today = new Date();
+    today.setDate(today.getDate() + 2);
+
+    deliveryDateGlobal = today.getDate() + "-" +
+                         (today.getMonth()+1) + "-" +
+                         today.getFullYear();
+
+    bookingIdGlobal = data.id;
+
+    // POPUP-1: Payment Successful
+    showPopup("Payment Successful");
+
+})
+    }
+</script>
 
 </body>
 </html>

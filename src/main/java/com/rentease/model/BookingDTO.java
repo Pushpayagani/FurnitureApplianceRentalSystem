@@ -13,6 +13,7 @@ import java.util.Date;
 public class BookingDTO {
 
 
+    private String name;
     private Long userId;
     private Long productId;
     private Date startDate;

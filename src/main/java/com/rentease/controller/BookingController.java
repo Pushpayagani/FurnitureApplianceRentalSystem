@@ -17,6 +17,7 @@ public class BookingController {
 
     @PostMapping("/createBooking")
     public BookingEntity createBooking(@RequestBody BookingEntity booking){
+        System.out.println("Received booking request: " + booking);
         return bookingService.createBooking(booking);
     }
 
