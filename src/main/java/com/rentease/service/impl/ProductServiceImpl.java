@@ -26,6 +26,7 @@ public class ProductServiceImpl implements ProductService {
         proEntity.setCategory(productDTO.getCategory());
         proEntity.setRentPerDay(productDTO.getRentPerDay());
         proEntity.setAvailabilityStatus(productDTO.getAvailabilityStatus());
+        proEntity.setImageName(productDTO.getImageName());
 
         proEntity=productRepository.save(proEntity);
         return proEntity;

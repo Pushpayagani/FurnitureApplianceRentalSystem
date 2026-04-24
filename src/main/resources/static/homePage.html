@@ -12,151 +12,151 @@
 
     <style>
         body{
-        font-family: Arial;
-        text-align:center;
-        background-color:#f2f2f2;
+         font-family: Arial;
+         text-align:center;
+         background-color:#f2f2f2;
         }
 
         header{
-        background-color:#333;
-        color:red;
-        padding:15px;
+         background-color:#333;
+         color:red; /* Card or menu colour change*/
+         padding:15px;
         }
 
         .container{
-        margin-top:50px;
+         margin-top:50px;
         }
 
         .combo{
-        text-decoration:none;
-        padding:12px 20px;
-        background-color:#007BFF;
-        color:white;
-        border-radius:5px;
-        margin:10px;
-        display:inline-block;
+         text-decoration:none;
+         padding:12px 20px;
+         background-color:#007BFF;     /* Book now background colure change*/
+         color:black;          /* Book now word color change*/
+         border-radius:5px;
+         margin:10px;         /* Book now word margin */
+         display:inline-block;
         }
 
         a:hover{
-        background-color:#0056b3;
+         background-color:#0056b3;    /* profile or login sercor clour change*/
         }
 
         /* Header Design */
         .header{
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        background-color:white;
-        padding:10px 20px;
-        border-bottom:1px solid #ddd;
+         display:flex;
+         align-items:center;
+         justify-content:space-between;
+         background-color:white;
+         padding:10px 20px;
+         border-bottom:1px solid #ddd;
         }
 
          /* Logo */
         .logo img{
-         width:120px;
-         }
+          width:120px;
+        }
 
        /* Search Box */
         .search-box{
-         flex:1;
-         margin:0 20px;
-         }
-
-       .search-box input{
-       width:100%;
-       padding:10px;
-       border-radius:5px;
-       border:1px solid #ccc;
+          flex:1;
+          margin:0 20px;
         }
 
-        /* Menu */
+        .search-box input{
+          width:100%;
+          padding:10px;
+          border-radius:5px;
+          border:1px solid #ccc;
+        }
+
+          /* Menu */
         .menu span{
-        margin-left:20px;
-        cursor:pointer;
-        font-weight:bold;
+          margin-left:20px;
+          cursor:pointer;
+          font-weight:bold;
         }
         .products{
-         display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-         gap: 10px;
-         padding: 20px;
-         }
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 10px;         /* products ke beech me gap */
+          padding: 20px;     /* slider se products ke beech me gap */
+        }
 
-         .card{
+        .card{
           background: #F5E1DC;
           padding: 15px;
           border-radius: 20px;
           box-shadow: 0 0 5px rgba(0,0,0,0.1);
-          }
-          .search-box{
-           position: relative;
-           width: 200px;
-           }
+        }
+        .search-box{
+          position: relative;
+          width: 200px;
+        }
 
-           .search-box input{
-            width:100%;
-            padding:10px 120px 10px 35px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            }
+        .search-box input{
+          width:100%;
+          padding:10px 120px 10px 35px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
 
-            .search-icon{
-            position:absolute;
-            left:10px;
-            top:50%;
-            transform:translateY(-50%);
-            color:gray;
-            }
-            .mic-icon {
-             position: absolute;
-             right: 90px;
-             top: 10px;
-             color: gray;
-             cursor: pointer;
-             }
+        .search-icon{
+          position:absolute;
+          left:10px;
+          top:50%;
+          transform:translateY(-50%);
+          color:gray;
+        }
+        .mic-icon {
+          position: absolute;
+          right: 90px;
+          top: 10px;
+          color: gray;
+          cursor: pointer;
+        }
 
-            .camera-icon {
-             position: absolute;
-             right: 50px;
-             top: 10px;
-             color: gray;
-             cursor: pointer;
-             }
+        .camera-icon {
+          position: absolute;
+          right: 50px;
+          top: 10px;
+          color: gray;
+          cursor: pointer;
+        }
 
-             .qr-icon {
-              position: absolute;
-              right: 20px;
-              top: 10px;
-              color: gray;
-              cursor: pointer;
-              }
-            .nav-item i {
-            font-size: 20px;
-            display: block;
-            }
-            .nav-item {
-            flex: 1;
-            }
-            .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 65px;
-            background-color: white;
+        .qr-icon {
+          position: absolute;
+          right: 20px;
+          top: 10px;
+          color: gray;
+          cursor: pointer;
+        }
+        .nav-item i {
+          font-size: 20px;
+          display: block;
+        }
+        .nav-item {
+          flex: 1;
+        }
+        .bottom-nav {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 65px;
+          background-color: white;
 
-            display: flex;              /* ⭐ horizontal banayega */
-            justify-content: space-around;
-            align-items: center;
+          display: flex;              /* horizontal banayega */
+          justify-content: space-around;
+          align-items: center;
 
-            border-top: 1px solid #ccc;
-            }
+          border-top: 1px solid #ccc;
+        }
 
-               /* Menu */
-               .menu span {
-               margin-left: 20px;
-               cursor: pointer;
-               }
+            /* Menu */
+        .menu span {
+          margin-left: 20px;
+          cursor: pointer;
+        }
                .navbar-toggler-icon {
                 background-image: none;
                 }
@@ -164,7 +164,7 @@
                 .navbar-toggler-icon::before {
                  content: "☰";
                  font-size: 24px;
-                 color: orange;   /* 👈  color change karo */
+                 color: orange;   /*  color change karo */
                  }
 
                /* Categories */
@@ -375,6 +375,24 @@ button:hover{
   padding: 10px;
   overflow-y: auto;
 }
+
+        /* product image size */
+        .product-img {
+  width: 100%;
+  height: 200px;      /* 🔥 fixed height (same for all) */
+  object-fit: cover;  /* image stretch nahi hogi, crop hogi */
+  border-radius: 10px;
+}
+
+        /* Zoom image*/
+        .product-img {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.product-img:hover {
+  transform: scale(1.05);
+}
     </style>
 
 </head>
@@ -541,32 +559,26 @@ button:hover{
     <!--<h2>Welcome</h2>-->
         <div class="products">
         <div class="card">
-            <img src="images/table1.jpg" width="180">
-
+            <img src="images/table1.jpg" class="product-img">
             <h3>Table1</h3>
             <p>Rent Price:₹500/day</p>
-            <!-- <input type="number" id="days1" value="1" min="1"
-                    oninput="calculatePrice(500, 'days1', 'total1', 'gst1', 'final1')">-->
 
             <button class="combo" onclick="goToBooking(1)">Book Now</button>
-
 
          </div>
 
          <div class="card">
-             <img src="images/sofa.jpg" width="190">
+             <img src="images/sofa.jpg" class="product-img">
 
              <h3>Sofa</h3>
              <p>Rent Price:₹200/day</p>
-             <!-- <input type="number" id="days2" value="1" min="1"
-                     oninput="calculatePrice(200, 'days1', 'total1', 'gst1', 'final1')">-->
 
              <button class="combo" onclick="goToBooking(2)">Book Now</button>
 
           </div>
 
           <div class="card">
-              <img src="images/bed.jpg" width="150">
+              <img src="images/bed.jpg" class="product-img">
 
               <h3>Bed</h3>
               <p>Rent Price:₹800/day</p>
@@ -577,7 +589,7 @@ button:hover{
            </div>
 
            <div class="card">
-               <img src="images/bigFridge.jpg" width="100">
+               <img src="images/bigFridge.jpg" class="product-img">
 
                <h3>Fridge</h3>
                <p>Rent Price:₹1000/day</p>
@@ -587,7 +599,7 @@ button:hover{
                <button class="combo" onclick="goToBooking(4)">Book Now</button>
             </div>
             <div class="card">
-                <img src="images/coffeeTable.jpg" width="150">
+                <img src="images/coffeeTable.jpg" class="product-img">
 
                 <h3>Coffee Table</h3>
                 <p>Rent Price:₹100/day</p>
@@ -597,7 +609,7 @@ button:hover{
                 <button class="combo" onclick="goToBooking(5)">Book Now</button>
             </div>
              <div class="card">
-                <img src="images/chair.jpg" width="100">
+                <img src="images/chair.jpg" class="product-img">
 
                 <h3>Rotate Chair</h3>
                 <p>Rent Price:₹50/day</p>
@@ -608,7 +620,7 @@ button:hover{
          </div>
 
         <div class="card">
-            <img src="images/studyTable.jpg" width="150">
+            <img src="images/studyTable.jpg" class="product-img">
 
             <h3>Study Table</h3>
             <p>Rent Price:₹50/day</p>
@@ -619,7 +631,7 @@ button:hover{
          </div>
 
         <div class="card">
-            <img src="images/diningTable.jpg" width="129">
+            <img src="images/diningTable.jpg" class="product-img">
 
             <h3>DiningTable</h3>
             <p>Rent Price:₹50/day</p>
@@ -630,9 +642,9 @@ button:hover{
         </div>
 
         <div class="card">
-            <img src="images/smallDiningTable.jpg" width="78">
+            <img src="images/diningTable1.jpg" class="product-img">
 
-            <h3>SmallDiningTable</h3>
+            <h3>DiningTable1</h3>
             <p>Rent Price:₹50/day</p>
             <!-- <input type="number" id="days7" value="1" min="1"
                     oninput="calculatePrice(50, 'days1', 'total1', 'gst1', 'final1')">-->
@@ -641,7 +653,7 @@ button:hover{
         </div>
 
         <div class="card">
-            <img src="images/door.jpg" width="100">
+            <img src="images/door.jpg" class="product-img">
 
             <h3>Door</h3>
             <p>Rent Price:₹50/day</p>
@@ -650,7 +662,91 @@ button:hover{
 
             <button class="combo" onclick="goToBooking(10)">Book Now</button>
         </div>
-             </div>
+            <div class="card">
+                <img src="images/tableFan.jpg" class="product-img">
+
+                <h3>Table Fan</h3>
+                <p>Rent Price:₹60/day</p>
+
+                <button class="combo" onclick="goToBooking(11)">Book Now</button>
+            </div>
+
+            <div class="card">
+                <img src="images/bed1.jpg" class="product-img">
+                <h3>Bed1</h3>
+                <p>Rent Price:₹90/day</p>
+
+                <button class="combo" onclick="goToBooking(12)">Book Now</button>
+
+            </div>
+            <div class="card">
+                <img src="images/sofa1.jpg" class="product-img">
+                <h3>Sofa1</h3>
+                <p>Rent Price:₹60</p>
+
+                <button class="combo" onclick="goToBooking(13)">Book Now</button>
+            </div>
+            <div class="card">
+                <img src="images/door1.jpg" class="product-img">
+                <h3>Door1</h3>
+                <p>Rent Price:₹70</p>
+
+                <button class="combo" onclick="goToBooking(14)">Book Now</button>
+            </div>
+            <div class="card">
+                <img src="images/whiteDressingTable.jpg" class="product-img">
+                <h3>DresingTable</h3>
+                <p>Rent Prise:₹80</p>
+
+                <button class="combo" onclick="goToBooking(15)">Book Now</button>
+            </div>
+            <div class="card">
+                <img src="images/recliner.jpg" class="product-img">
+                <h3>Recliner</h3>
+                <p>Rent Prise:₹40</p>
+
+                <button class="combo" onclick="goToBooking(16)">Book Now</button>
+            </div>
+            <div class="card">
+                <img src="images/recliner1.jpg" class="product-img">
+                <h3>Recliner1</h3>
+                <p>Rent Prise:₹40</p>
+
+                <button class="combo" onclick="goToBooking(17)">Book Now</button>
+            </div>
+
+
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imageModal" style="
+    display:none;
+    position:fixed;
+    z-index:999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+">
+
+    <span onclick="closeModal()" style="
+        position:absolute;
+        top:20px;
+        right:30px;
+        font-size:30px;
+        color:white;
+        cursor:pointer;
+    ">&times;</span>
+
+            <img id="modalImg" style="
+        max-width:80%;
+        max-height:80%;
+        border-radius:10px;
+    ">
+        </div>
 
 
          <footer class="footer">
@@ -777,18 +873,28 @@ button:hover{
   document.getElementById("chatbox").innerHTML +=
     "<p><b>You:</b> " + message + "</p>";
 
+try{
   let res = await fetch("http://localhost:9090/FurnitureApplianceRentalSystem/chat", {
     method: "POST",
     headers: {
-      "Content-Type": "text/plain"
+      "Content-Type": "application/json"
     },
-    body: message
+    body:JSON.stringify({message:message})
   });
+
+  if(!res.ok){
+  throw new Error("Status:" + res.status);
+  }
 
   let reply = await res.text();
 
   document.getElementById("chatbox").innerHTML +=
     "<p><b>Bot:</b> " + reply + "</p>";
+
+    }catch(err){
+    document.getElementById("chatbox").innerHTML +=
+    "<p><b>Bot:</b>Error come:" + ree.message +"</p>";
+    }
 
   // 🔊 Voice add
   //let speech = new SpeechSynthesisUtterance(reply);
@@ -822,12 +928,15 @@ function showProducts(products) {
 
     products.forEach(p => {
 
-        let image = p.imageUrl || "images/default.jpg";
+        let image = p.imageUrl || "images/" + (p.imageName || "default.jpg");
 
         container.innerHTML += `
             <div class="card">
 
-                <img src="${image}" width="150">
+                <img src="${image}"
+                     class="product-img"
+                     onclick="openModal('${image}')">
+
 
                 <h3>${p.name}</h3>
 
@@ -840,6 +949,14 @@ function showProducts(products) {
             </div>
         `;
     });
+}
+        function openModal(src) {
+    document.getElementById("imageModal").style.display = "flex";
+    document.getElementById("modalImg").src = src;
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
 }
 
     </script>

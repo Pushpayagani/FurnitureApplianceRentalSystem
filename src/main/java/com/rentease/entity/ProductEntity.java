@@ -20,6 +20,6 @@ public class ProductEntity {
     private String category;
     private Double rentPerDay;
     private Boolean availabilityStatus;
-
+    private String imageName;
 
 }
