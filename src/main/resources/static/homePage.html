@@ -438,16 +438,12 @@ button:hover{
     </div>
 
     <div class="menu">
-        <span><a href="/login">Login</a></span>
+        <span><a href="#" onclick="logout()">Logout</a></span>
         <span><a href="/profile">Profile</a></span>
         <span class="count">Cart</span>
         <!--<span><a href="/cart">My Cart</a></span>-->
         <!--<div class="cart">-->
             <i class="fa-solid fa-cart-shopping"></i>
-
-        <!--</div>-->
-
-
     </div>
 
 </header>
@@ -500,7 +496,7 @@ button:hover{
 
                         <div class="carousel-inner">
 
-                <!-- Slide 1 -->
+                         <!-- Slide 1 -->
                             <div class="carousel-item active">
                     <div class="banner-slide" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7');">
                         <div class="banner-text">
@@ -711,11 +707,8 @@ button:hover{
                 <img src="images/recliner1.jpg" class="product-img">
                 <h3>Recliner1</h3>
                 <p>Rent Prise:₹40</p>
-
                 <button class="combo" onclick="goToBooking(17)">Book Now</button>
             </div>
-
-
         </div>
 
         <!-- Image Modal -->
@@ -958,9 +951,22 @@ function showProducts(products) {
 function closeModal() {
     document.getElementById("imageModal").style.display = "none";
 }
-
     </script>
+    <script>
+        function logout(){
 
+           localStorage.removeItem("isLogin");
+           localStorage.removeItem("userRole");
+
+           alert("Logout Successful");
+
+           if(localStorage.getItem("isLogin") !== "true"){
+   window.location.href="login.html";
+        }
+
+
+}
+    </script>
     <!--  Floating Chat Button -->
     <div id="chat-icon" onclick="toggleChat()">
         💬

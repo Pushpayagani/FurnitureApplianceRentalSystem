@@ -76,44 +76,53 @@
     e.preventDefault();
 
     let loginData = {
-    userId: document.getElementById("userId").value,
-    password: document.getElementById("password").value
+        userId: document.getElementById("userId").value,
+        password: document.getElementById("password").value
     };
 
+        console.log("Sending:", loginData);
     fetch("http://localhost:9090/FurnitureApplianceRentalSystem/user/login", {
 
-    method: "POST",
-    headers: {
-    "Content-Type": "application/json"
-    },
-    body: JSON.stringify(loginData)
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(loginData)
 
     })
     .then(response => {
 
-    if(response.ok){
-         return response.text();
-    }else{
-    throw new Error("Login Failed");
-    }
+        if(response.ok){
+            return response.json();   //  JSON read kar rahe hain
+        }else{
+            throw new Error("Login Failed");
+        }
 
     })
     .then(data => {
 
-document.getElementById("message").innerText = "Login Successful";
+        document.getElementById("message").innerText = data.message;
 
-setTimeout(function(){
-window.location.href = "dashboard.html";
-},1000);
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("userRole", data.role);
 
-})
-.catch(error => {
+        setTimeout(function(){
 
-document.getElementById("message").innerText = "Invalid userId or Password";
+            if(data.role == "ADMIN"){
+                window.location.href = "dashboard.html";
+            }else{
+                window.location.href = "homePage.html";
+            }
 
-   });
- });
+        },1000);
 
+    })
+    .catch(error => {
+
+        document.getElementById("message").innerText = "Invalid userId or Password";
+
+    });
+});
 </script>
 
 </body>

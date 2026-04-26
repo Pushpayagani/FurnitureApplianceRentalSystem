@@ -2,9 +2,72 @@
 <html>
 <head>
     <title>User Registration</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:white;
+            width:350px;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        h2{
+            margin-bottom:20px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:#007BFF;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+        label{
+            float:left;
+            font-weight:bold;
+        }
+
+        #message{
+            margin-top:15px;
+            color:green;
+        }
+    </style>
 </head>
 
 <body>
+
+<div class="container">
 
 <h2>User Registration</h2>
 
@@ -30,7 +93,7 @@
 </form>
 
 <p id="message"></p>
-
+</div>
 <script>
 
     document.getElementById("registerForm").addEventListener("submit", function(e){
@@ -58,13 +121,16 @@
     })
     .then(response => response.json())
     .then(data => {
-    document.getElementById("message").innerText="Registration Successful";
-    })
-    .catch(error=>{
-    document.getElementById("message").innerText="Error occurred";
-    });
+    alert("Registration Successful");
 
-    });
+   window.location.href="login.html";
+
+})
+.catch(error => {
+   alert("Registration Failed");
+});
+
+});
 
 </script>
 
