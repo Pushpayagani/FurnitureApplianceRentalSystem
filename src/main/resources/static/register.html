@@ -95,43 +95,44 @@
 <p id="message"></p>
 </div>
 <script>
-
     document.getElementById("registerForm").addEventListener("submit", function(e){
 
     e.preventDefault();
 
     let userData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    password: document.getElementById("password").value,
-    phone: document.getElementById("phone").value,
-     userId: document.getElementById("userId").value
-
-
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        phone: document.getElementById("phone").value,
+        userId: document.getElementById("userId").value
     };
 
-    fetch("http://localhost:9090/FurnitureApplianceRentalSystem/user/register",{
+    fetch("/FurnitureApplianceRentalSystem/user/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+    })
+    .then(async response => {
 
-    method:"POST",
-    headers:{
-    "Content-Type":"application/json"
-    },
-    body:JSON.stringify(userData)
+        let result = await response.text();
+        console.log(result);
+
+        if(response.ok){
+            alert("Registration Successful");
+            window.location.href = "login.html";
+        } else {
+            alert("Registration Failed");
+        }
 
     })
-    .then(response => response.json())
-    .then(data => {
-    alert("Registration Successful");
+    .catch(error => {
+        console.log(error);
+        alert("Server Error");
+    });
 
-   window.location.href="login.html";
-
-})
-.catch(error => {
-   alert("Registration Failed");
-});
-
-});
-
+    });
 </script>
 
 </body>

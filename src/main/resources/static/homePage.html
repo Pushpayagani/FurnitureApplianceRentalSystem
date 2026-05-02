@@ -170,10 +170,10 @@
                /* Categories */
                .category-slider {
                 display: flex;
-                justify-content: center;   /* ⭐ ye center karega */
+                justify-content: center;   /* ye center karega */
                 align-items: center;
-                                            /* ⭐ ek line me laayega */
-                 overflow-x: auto;           /* ⭐ scroll enable */
+                                            /* ek line me laayega */
+                 overflow-x: auto;           /* scroll enable */
                  gap: 15px;
                  padding: 10px;
                  background: white;
@@ -184,8 +184,8 @@
                   }
 
                   .category-item {
-                   min-width: 80px;            /* ⭐ important */
-                   flex-shrink: 0;             /* ⭐ items squeeze nahi honge */
+                   min-width: 80px;            /* important */
+                   flex-shrink: 0;             /*  items squeeze nahi honge */
                    text-align: center;
                    }
 
@@ -335,7 +335,7 @@ button:hover{
 }
 
 
-        /* 💬 Floating icon */
+        /* Floating icon */
 #chat-icon {
   position: fixed;
   bottom: 20px;
@@ -348,7 +348,7 @@ button:hover{
   cursor: pointer;
 }
 
-/* 📦 Chat container */
+/* Chat container */
 #chat-container {
   position: fixed;
   bottom: 80px;
@@ -379,7 +379,7 @@ button:hover{
         /* product image size */
         .product-img {
   width: 100%;
-  height: 200px;      /* 🔥 fixed height (same for all) */
+  height: 200px;      /* fixed height (same for all) */
   object-fit: cover;  /* image stretch nahi hogi, crop hogi */
   border-radius: 10px;
 }
@@ -539,17 +539,10 @@ button:hover{
             <button class="carousel-control-next" type="button" data-bs-target="#bannerSlider" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
-
         </div>
-
-
-
     </div>
-
-
            <!-- <h2 style="color: red;">Welcome</h2>
             <h2 style="color: green;">Furniture & Appliances Rental System</h2>-->
-
 
     <div class="container">
     <!--<h2>Welcome</h2>-->
@@ -709,6 +702,12 @@ button:hover{
                 <p>Rent Prise:₹40</p>
                 <button class="combo" onclick="goToBooking(17)">Book Now</button>
             </div>
+            <div class="card">
+                <img src="images/sofaChair.jpg" class="product-img">
+                <h3>Sofa Chair</h3>
+                <p>Rent Prise:₹50</p>
+                <button class="combo" onclick="gpToBooking(18)">Book Now</button>
+            </div>
         </div>
 
         <!-- Image Modal -->
@@ -867,7 +866,7 @@ button:hover{
     "<p><b>You:</b> " + message + "</p>";
 
 try{
-  let res = await fetch("http://localhost:9090/FurnitureApplianceRentalSystem/chat", {
+  let res = await fetch("/FurnitureApplianceRentalSystem/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -896,7 +895,7 @@ try{
 
         function openCategory(category) {
 
-    let url = "http://localhost:9090/FurnitureApplianceRentalSystem/product";
+    let url = "/FurnitureApplianceRentalSystem/product";
 
     if(category !== "all"){
         url += "?category=" + category;
